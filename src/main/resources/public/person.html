@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Персона</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body ng-app = "kursova">
+<div class="container" style="margin-top: 30px" ng-controller = "AppCtrl as ctrl" >
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <center><h4>Персона</h4></center> </div>
+                <div class="panel-body">
+
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Тип персони</th>
+                            <th>Ім'я персони</th>
+                            <th>Факультет</th>
+                            <th>Кафедра</th>
+                            <th>Група</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat = "item in person">
+                            <td>{{item.idperson}}</td>
+                            <td>{{item.typeOfPerson}}</td>
+                            <td>{{item.nameperson}}</td>
+                            <td>{{item.faculty}}</td>
+                            <td>{{item.cathedra}}</td>
+                            <td>{{item.groupe}}</td>
+                        </tr>
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    body{
+        background: url(img/photo_2018-04-02_21-13-29.jpg);
+    }
+</style>
+
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

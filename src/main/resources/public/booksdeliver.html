@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поставка книг</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body ng-app = "kursova">
+<div class="container" style="margin-top: 30px" ng-controller = "AppCtrl as ctrl" >
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <center><h4>Поставка книг</h4></center> </div>
+                <div class="panel-body">
+
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Імя книги</th>
+                            <th>Розташування</th>
+                            <th>Кількість</th>
+                            <th>Дата поставки</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat = "item in booksdeliver">
+                            <td>{{item.idbooksdeliver}}</td>
+                            <td>{{item.namebook}}</td>
+                            <td>{{item.namelocation}}</td>
+                            <td>{{item.amount}}</td>
+                            <td>{{item.datebooksdeliver}}</td>
+                        </tr>
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    body{
+        background: url(img/photo_2018-04-02_21-13-29.jpg);
+    }
+</style>
+
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

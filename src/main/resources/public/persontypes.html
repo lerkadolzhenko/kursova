@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Типи персон</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body ng-app = "kursova">
+<div class="container" style="margin-top: 30px" ng-controller = "AppCtrl as ctrl" >
+    <div class="row">
+        <div class="col-md12">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <center><h4>Типи персон</h4></center> </div>
+                <div class="panel-body">
+
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Тип персони</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat = "item in persontypes">
+                            <td>{{item.idpersontypes}}</td>
+                            <td>{{item.typeOfPerson}}</td>
+                        </tr>
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    body{
+        background: url(img/photo_2018-04-02_21-13-29.jpg);
+    }
+</style>
+
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
