@@ -11,7 +11,7 @@ public interface ITypefineService {
 
     public Typefine updateTypefine(Typefine typefine);
 
-    public Typefine deleteTypefine(int id);
+    public void deleteTypefine(int id);
 
     public List<Typefine> getAll();
 }

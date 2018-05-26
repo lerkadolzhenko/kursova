@@ -11,7 +11,7 @@ public interface IPersontypesService {
 
     public Persontypes updatePersontypes(Persontypes persontypes);
 
-    public Persontypes deletePersontypes(int id);
+    public void deletePersontypes(int id);
 
     public List<Persontypes> getAll();
 }

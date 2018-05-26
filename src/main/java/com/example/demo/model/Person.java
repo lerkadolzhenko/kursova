@@ -1,20 +1,30 @@
 package com.example.demo.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idperson;
-    private String typeOfPerson;
+
+    @ManyToOne
+    private Persontypes typeOfPerson;
     private String nameperson;
     private String faculty;
     private String cathedra;
-    private int groupe;
+    private Integer groupe;
 
-    public Person(int idperson, String typeOfPerson, String nameperson, String faculty, String cathedra, int groupe) {
+    public Person(int idperson, Persontypes typeOfPerson, String nameperson, String faculty, String cathedra, Integer groupe) {
         this.idperson = idperson;
         this.typeOfPerson = typeOfPerson;
         this.nameperson = nameperson;
         this.faculty = faculty;
         this.cathedra = cathedra;
         this.groupe = groupe;
+    }
+
+    public Person() {
     }
 
     public int getIdperson() {
@@ -25,11 +35,11 @@ public class Person {
         this.idperson = idperson;
     }
 
-    public String gettypeOfPerson() {
+    public Persontypes gettypeOfPerson() {
         return typeOfPerson;
     }
 
-    public void settypeOfPerson(String typeOfPerson) {
+    public void settypeOfPerson(Persontypes typeOfPerson) {
         this.typeOfPerson = typeOfPerson;
     }
 
@@ -57,23 +67,11 @@ public class Person {
         this.cathedra = cathedra;
     }
 
-    public int getGroupe() {
+    public Integer getGroupe() {
         return groupe;
     }
 
-    public void setGroupe(int groupe) {
+    public void setGroupe(Integer groupe) {
         this.groupe = groupe;
-    }
-
-    @Override
-    public String toString() {
-        return "com.example.demo.model.Person{" +
-                "idperson=" + idperson +
-                ", typeOfPerson_idtypeOfPerson=" + typeOfPerson +
-                ", nameperson=" + nameperson +
-                ", faculty=" + faculty +
-                ", cathedra=" + cathedra +
-                ", groupe=" + groupe +
-                '}';
     }
 }

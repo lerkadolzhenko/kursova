@@ -1,12 +1,21 @@
 package com.example.demo.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Persontypes {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idpersontypes;
+
     private String typeOfPerson;
 
     public Persontypes(int idpersontypes, String typeOfPerson) {
         this.idpersontypes = idpersontypes;
         this.typeOfPerson = typeOfPerson;
+    }
+
+    public Persontypes() {
     }
 
     public int getIdpersontypes() {
@@ -25,11 +34,4 @@ public class Persontypes {
         this.typeOfPerson = typeOfPerson;
     }
 
-    @Override
-    public String toString() {
-        return "Persontypes{" +
-                "idpersontypes=" + idpersontypes +
-                ", typeOfPerson=" + typeOfPerson +
-                '}';
-    }
 }

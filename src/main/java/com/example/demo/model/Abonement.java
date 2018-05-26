@@ -1,8 +1,13 @@
 package com.example.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import static org.apache.coyote.http11.Constants.a;
 
 public class Abonement {
+
     private int idabonement;
     private String nameperson;
     private String nametypeofabonement;
@@ -13,6 +18,14 @@ public class Abonement {
     }
 
     public Abonement(String nameperson, String nametypeofabonement, String dateabonementbegin, String dateabonementend) {
+        this.nameperson = nameperson;
+        this.nametypeofabonement = nametypeofabonement;
+        this.dateabonementbegin = dateabonementbegin;
+        this.dateabonementend = dateabonementend;
+    }
+
+    public Abonement(int idabonement, String nameperson, String nametypeofabonement, String dateabonementbegin, String dateabonementend) {
+        this.idabonement = idabonement;
         this.nameperson = nameperson;
         this.nametypeofabonement = nametypeofabonement;
         this.dateabonementbegin = dateabonementbegin;

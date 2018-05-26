@@ -11,7 +11,7 @@ public interface IPersonService {
 
     public Person updatePerson(Person person);
 
-    public Person deletePerson(int id);
+    public void deletePerson(int id);
 
     public List<Person> getAll();
 }

@@ -1,6 +1,14 @@
 package com.example.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Typefine {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idtypefine;
     private String typefine;
     private int coef;
@@ -9,6 +17,9 @@ public class Typefine {
         this.idtypefine = idtypefine;
         this.typefine = typefine;
         this.coef = coef;
+    }
+
+    public Typefine() {
     }
 
     public int getIdtypefine() {
