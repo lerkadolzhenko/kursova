@@ -11,7 +11,7 @@ public interface IAbonementService{
 
     public Abonement updateAbonement(Abonement abonement);
 
-    public Abonement deleteAbonement(int id);
+    public void deleteAbonement(int id);
 
     public List<Abonement> getAll();
 }

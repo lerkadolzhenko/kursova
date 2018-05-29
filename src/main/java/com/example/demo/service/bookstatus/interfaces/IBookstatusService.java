@@ -11,7 +11,7 @@ public interface IBookstatusService {
 
     public Bookstatus updateBookstatus(Bookstatus bookstatus);
 
-    public Bookstatus deleteBookstatus(int id);
+    public void deleteBookstatus(int id);
 
     public List<Bookstatus> getAll();
 }

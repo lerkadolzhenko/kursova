@@ -11,7 +11,7 @@ public interface IBansService {
 
     public Bans updateBans(Bans bans);
 
-    public Bans deleteBans(int id);
+    public void deleteBans(int id);
 
     public List<Bans> getAll();
 }

@@ -1,12 +1,26 @@
 package com.example.demo.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "fines")
+@EntityListeners(AuditingEntityListener.class)
 public class Fines {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idfines;
-    private String nametypefine;
-    private String nameperson;
+    @ManyToOne
+    private Typefine nametypefine;
+    @ManyToOne
+    private Abonement nameperson;
     private int sizeoffine;
 
-    public Fines(int idfines, String nametypefine, String nameperson, int sizeoffine) {
+    public Fines() {
+    }
+
+    public Fines(int idfines, Typefine nametypefine, Abonement nameperson, int sizeoffine) {
         this.idfines = idfines;
         this.nametypefine = nametypefine;
         this.nameperson = nameperson;
@@ -21,19 +35,19 @@ public class Fines {
         this.idfines = idfines;
     }
 
-    public String getNametypefine() {
+    public Typefine getNametypefine() {
         return nametypefine;
     }
 
-    public void setNametypefine(String nametypefine) {
+    public void setNametypefine(Typefine nametypefine) {
         this.nametypefine = nametypefine;
     }
 
-    public String getNameperson() {
+    public Abonement getNameperson() {
         return nameperson;
     }
 
-    public void setNameperson(String nameperson) {
+    public void setNameperson(Abonement nameperson) {
         this.nameperson = nameperson;
     }
 
@@ -45,7 +59,7 @@ public class Fines {
         this.sizeoffine = sizeoffine;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Fines{" +
                 "idfines=" + idfines +
@@ -53,5 +67,5 @@ public class Fines {
                 ", nameperson='" + nameperson + '\'' +
                 ", sizeoffine=" + sizeoffine +
                 '}';
-    }
+    }*/
 }

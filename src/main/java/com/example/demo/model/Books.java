@@ -1,8 +1,19 @@
 package com.example.demo.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "books")
+@EntityListeners(AuditingEntityListener.class)
+
 public class Books {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idbooks;
-    private String namelocation;
+    @ManyToOne
+    private Location namelocation;
     private String namebook;
     private String author;
     private int year;
@@ -10,7 +21,7 @@ public class Books {
     private int price;
     private int amountdebtor;
 
-    public Books(int idbooks, String namelocation, String namebook, String author, int year, int amount, int price, int amountdebtor) {
+    public Books(int idbooks, Location namelocation, String namebook, String author, int year, int amount, int price, int amountdebtor) {
         this.idbooks = idbooks;
         this.namelocation = namelocation;
         this.namebook = namebook;
@@ -21,6 +32,9 @@ public class Books {
         this.amountdebtor = amountdebtor;
     }
 
+    public Books() {
+    }
+
     public int getIdbooks() {
         return idbooks;
     }
@@ -29,11 +43,11 @@ public class Books {
         this.idbooks = idbooks;
     }
 
-    public String getNamelocation() {
+    public Location getNamelocation() {
         return namelocation;
     }
 
-    public void setNamelocation(String namelocation) {
+    public void setNamelocation(Location namelocation) {
         this.namelocation = namelocation;
     }
 
@@ -85,7 +99,7 @@ public class Books {
         this.amountdebtor = amountdebtor;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Books{" +
                 "idbooks=" + idbooks +
@@ -97,5 +111,5 @@ public class Books {
                 ", price=" + price +
                 ", amountdebtor=" + amountdebtor +
                 '}';
-    }
+    }*/
 }

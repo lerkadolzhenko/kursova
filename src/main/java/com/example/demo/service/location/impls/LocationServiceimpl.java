@@ -1,9 +1,8 @@
 package com.example.demo.service.location.impls;
 
-import com.example.demo.DAO.location.impls.LocationDAOimpl;
-import com.example.demo.datastorage.DataStorageFake;
 import com.example.demo.model.Location;
 import com.example.demo.model.Location;
+import com.example.demo.repository.LocationRepository;
 import com.example.demo.service.location.interfaces.ILocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,33 +14,33 @@ import java.util.stream.Collectors;
 @Service
 public class LocationServiceimpl implements ILocationService {
     @Autowired
-    LocationDAOimpl LocationDAO;
+    LocationRepository LocationRepository;
 
     @Override
     public Location insertLocation(Location location) {
-        return LocationDAO.insertLocation(location);
+        return LocationRepository.save(location);
     }
 
     @Override
     public Location getLocation(int id) {
-        return LocationDAO.getLocation(id);
+        return LocationRepository.getOne(id);
 
     }
 
     @Override
     public Location updateLocation(Location location) {
-        return LocationDAO.updateLocation(location);
+        return LocationRepository.save(location);
     }
 
     @Override
-    public Location deleteLocation(int id) {
-        return LocationDAO.deleteLocation(id);
+    public void deleteLocation(int id) {
+         LocationRepository.deleteById(id);
     }
 
     @Override
     public List<Location> getAll() {
-        return LocationDAO.getAll().
-                stream()
-                .collect(Collectors.toList());
+        return LocationRepository.findAll();
+                /*stream()
+                .collect(Collectors.toList());*/
     }
 }

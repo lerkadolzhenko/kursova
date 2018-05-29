@@ -11,7 +11,7 @@ public interface ILocationService {
 
     public Location updateLocation(Location location);
 
-    public Location deleteLocation(int id);
+    public void deleteLocation(int id);
 
     public List<Location> getAll();
 }

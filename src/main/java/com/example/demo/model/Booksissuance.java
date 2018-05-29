@@ -1,15 +1,32 @@
 package com.example.demo.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "booksissuance")
+@EntityListeners(AuditingEntityListener.class)
+
 public class Booksissuance {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idbooksissuance;
-    private String namebook;
-    private String nameperson;
-    private String namebookstatus;
-    private String namelocation;
+    @ManyToOne
+    private Books namebook;
+    @ManyToOne
+    private Abonement nameperson;
+    @ManyToOne
+    private Bookstatus namebookstatus;
+    @ManyToOne
+    private Location namelocation;
     private String dateofissuance;
     private String dateofsurrending;
 
-    public Booksissuance(int idbooksissuance, String namebook, String nameperson, String namebookstatus, String namelocation, String dateofissuance, String dateofsurrending) {
+    public Booksissuance() {
+    }
+
+    public Booksissuance(int idbooksissuance, Books namebook, Abonement nameperson, Bookstatus namebookstatus, Location namelocation, String dateofissuance, String dateofsurrending) {
         this.idbooksissuance = idbooksissuance;
         this.namebook = namebook;
         this.nameperson = nameperson;
@@ -27,35 +44,35 @@ public class Booksissuance {
         this.idbooksissuance = idbooksissuance;
     }
 
-    public String getNamebook() {
+    public Books getNamebook() {
         return namebook;
     }
 
-    public void setNamebook(String namebook) {
+    public void setNamebook(Books namebook) {
         this.namebook = namebook;
     }
 
-    public String getNameperson() {
+    public Abonement getNameperson() {
         return nameperson;
     }
 
-    public void setNameperson(String nameperson) {
+    public void setNameperson(Abonement nameperson) {
         this.nameperson = nameperson;
     }
 
-    public String getNamebookstatus() {
+    public Bookstatus getNamebookstatus() {
         return namebookstatus;
     }
 
-    public void setNamebookstatus(String namebookstatus) {
+    public void setNamebookstatus(Bookstatus namebookstatus) {
         this.namebookstatus = namebookstatus;
     }
 
-    public String getNamelocation() {
+    public Location getNamelocation() {
         return namelocation;
     }
 
-    public void setNamelocation(String namelocation) {
+    public void setNamelocation(Location namelocation) {
         this.namelocation = namelocation;
     }
 
@@ -75,7 +92,7 @@ public class Booksissuance {
         this.dateofsurrending = dateofsurrending;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Booksissuance{" +
                 "idbooksissuance=" + idbooksissuance +
@@ -86,5 +103,5 @@ public class Booksissuance {
                 ", dateofissuance=" + dateofissuance +
                 ", dateofsurrending=" + dateofsurrending +
                 '}';
-    }
+    }*/
 }

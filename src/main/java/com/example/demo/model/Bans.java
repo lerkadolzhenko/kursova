@@ -1,16 +1,29 @@
 package com.example.demo.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "bans")
+@EntityListeners(AuditingEntityListener.class)
 public class Bans {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idbans;
-    private String nameperson;
+    @ManyToOne
+    private Abonement nameperson;
     private String dateofbegin;
     private String dateofend;
 
-    public Bans(int idbans, String nameperson, String dateofbegin, String dateofend) {
+    public Bans(int idbans, Abonement nameperson, String dateofbegin, String dateofend) {
         this.idbans = idbans;
         this.nameperson = nameperson;
         this.dateofbegin = dateofbegin;
         this.dateofend = dateofend;
+    }
+
+    public Bans() {
     }
 
     public int getIdbans() {
@@ -21,11 +34,11 @@ public class Bans {
         this.idbans = idbans;
     }
 
-    public String getNameperson() {
+    public Abonement getNameperson() {
         return nameperson;
     }
 
-    public void setNameperson(String nameperson) {
+    public void setNameperson(Abonement nameperson) {
         this.nameperson = nameperson;
     }
 
@@ -45,7 +58,7 @@ public class Bans {
         this.dateofend = dateofend;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "com.example.demo.model.Bans{" +
                 "idbans=" + idbans +
@@ -53,5 +66,5 @@ public class Bans {
                 ", dateofbegin=" + dateofbegin +
                 ", dateofend=" + dateofend +
                 '}';
-    }
+    }*/
 }

@@ -11,7 +11,7 @@ public interface IBooksissuanceService {
 
     public Booksissuance updateBooksissuance(Booksissuance booksissuance);
 
-    public Booksissuance deleteBooksissuance(int id);
+    public void deleteBooksissuance(int id);
 
     public List<Booksissuance> getAll();
 }

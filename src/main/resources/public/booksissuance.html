@@ -29,10 +29,10 @@
                         </thead>
                         <tr ng-repeat = "item in booksissuance">
                             <td>{{item.idbooksissuance}}</td>
-                            <td>{{item.namebook}}</td>
-                            <td>{{item.nameperson}}</td>
-                            <td>{{item.namebookstatus}}</td>
-                            <td>{{item.namelocation}}</td>
+                            <td>{{item.namebook.namebook}}</td>
+                            <td>{{item.nameperson.nameperson.nameperson}}</td>
+                            <td>{{item.namebookstatus.namebooksatus}}</td>
+                            <td>{{item.namelocation.namelocation}}</td>
                             <td>{{item.dateofissuance}}</td>
                             <td>{{item.dateofsurrending}}</td>
                         </tr>

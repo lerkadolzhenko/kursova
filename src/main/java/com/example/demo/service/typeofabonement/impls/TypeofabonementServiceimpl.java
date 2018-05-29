@@ -1,7 +1,7 @@
 package com.example.demo.service.typeofabonement.impls;
 
-import com.example.demo.DAO.typeofabonement.impls.TypeofabonementDAOimpl;
 import com.example.demo.model.Typeofabonement;
+import com.example.demo.repository.TypeOfAbonementRepository;
 import com.example.demo.service.typeofabonement.interfaces.ITypeofabonementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,33 +12,33 @@ import java.util.stream.Collectors;
 @Service
 public class TypeofabonementServiceimpl implements ITypeofabonementService {
     @Autowired
-    TypeofabonementDAOimpl TypeofabonementDAO;
+    TypeOfAbonementRepository TypeofabonementRepository;
 
     @Override
     public Typeofabonement insertTypeofabonement(Typeofabonement typeofabonement) {
-        return TypeofabonementDAO.insertTypeofabonement(typeofabonement);
+        return TypeofabonementRepository.save(typeofabonement);
     }
 
     @Override
     public Typeofabonement getTypeofabonement(int id) {
-        return TypeofabonementDAO.getTypeofabonement(id);
+        return TypeofabonementRepository.getOne(id);
 
     }
 
     @Override
     public Typeofabonement updateTypeofabonement(Typeofabonement typeofabonement) {
-        return TypeofabonementDAO.updateTypeofabonement(typeofabonement);
+        return TypeofabonementRepository.save(typeofabonement);
     }
 
     @Override
-    public Typeofabonement deleteTypeofabonement(int id) {
-        return TypeofabonementDAO.deleteTypeofabonement(id);
+    public void deleteTypeofabonement(int id) {
+         TypeofabonementRepository.deleteById(id);
     }
 
     @Override
     public List<Typeofabonement> getAll() {
-        return TypeofabonementDAO.getAll().
-                stream()
-                .collect(Collectors.toList());
+        return TypeofabonementRepository.findAll();
+               /* stream()
+                .collect(Collectors.toList());*/
     }
 }

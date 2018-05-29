@@ -18,6 +18,7 @@ public class PersontypesServiceimpl implements IPersontypesService {
 
     @Override
     public Persontypes insertPersontypes(Persontypes persontypes) {
+
         return persontypesRepository.save(persontypes);
     }
 
@@ -29,16 +30,19 @@ public class PersontypesServiceimpl implements IPersontypesService {
 
     @Override
     public Persontypes updatePersontypes(Persontypes persontypes) {
+
         return persontypesRepository.save(persontypes);
     }
 
     @Override
     public void deletePersontypes(int id) {
-         persontypesRepository.deleteById(id);
+
+        persontypesRepository.deleteById(id);
     }
 
     @Override
     public List<Persontypes> getAll() {
+
         return persontypesRepository.findAll();
     }
 }

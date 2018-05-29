@@ -18,4 +18,5 @@ public class TypefineController {
     {
         return TypefineService.getAll();
     }
+
 }

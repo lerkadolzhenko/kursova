@@ -7,7 +7,6 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idperson;
-
     @ManyToOne
     private Persontypes typeOfPerson;
     private String nameperson;
@@ -15,7 +14,7 @@ public class Person {
     private String cathedra;
     private Integer groupe;
 
-    public Person(int idperson, Persontypes typeOfPerson, String nameperson, String faculty, String cathedra, Integer groupe) {
+    public Person(Persontypes typeOfPerson, String nameperson, String faculty, String cathedra) {
         this.idperson = idperson;
         this.typeOfPerson = typeOfPerson;
         this.nameperson = nameperson;

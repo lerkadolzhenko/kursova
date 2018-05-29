@@ -11,7 +11,7 @@ public interface IBooksdeliverService {
 
     public Booksdeliver updateBooksdeliver(Booksdeliver booksdeliver);
 
-    public Booksdeliver deleteBooksdeliver(int id);
+    public void deleteBooksdeliver(int id);
 
     public List<Booksdeliver> getAll();
 }

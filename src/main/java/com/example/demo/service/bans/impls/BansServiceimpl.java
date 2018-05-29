@@ -1,8 +1,7 @@
 package com.example.demo.service.bans.impls;
 
-import com.example.demo.DAO.bans.impls.BansDAOimpl;
-import com.example.demo.datastorage.DataStorageFake;
 import com.example.demo.model.Bans;
+import com.example.demo.repository.BansRepository;
 import com.example.demo.service.bans.interfaces.IBansService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,33 +13,33 @@ import java.util.stream.Collectors;
 public class BansServiceimpl implements IBansService {
 
     @Autowired
-    BansDAOimpl BansDAO;
+    BansRepository BansRepository;
 
     @Override
     public Bans insertBans(Bans bans) {
-        return BansDAO.insertBans(bans);
+        return BansRepository.save(bans);
     }
 
     @Override
     public Bans getBans(int id) {
-        return BansDAO.getBans(id);
+        return BansRepository.getOne(id);
 
     }
 
     @Override
     public Bans updateBans(Bans bans) {
-        return BansDAO.updateBans(bans);
+        return BansRepository.save(bans);
     }
 
     @Override
-    public Bans deleteBans(int id) {
-        return BansDAO.deleteBans(id);
+    public void deleteBans(int id) {
+         BansRepository.deleteById(id);
     }
 
     @Override
     public List<Bans> getAll() {
-        return BansDAO.getAll().
-                stream()
-                .collect(Collectors.toList());
+        return BansRepository.findAll();
+               /* stream()
+                .collect(Collectors.toList());*/
     }
 }

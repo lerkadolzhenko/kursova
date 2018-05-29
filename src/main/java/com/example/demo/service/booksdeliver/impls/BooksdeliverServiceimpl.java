@@ -1,9 +1,8 @@
 package com.example.demo.service.booksdeliver.impls;
 
-import com.example.demo.DAO.booksdeliver.impls.BooksdeliverDAOimpl;
-import com.example.demo.datastorage.DataStorageFake;
 import com.example.demo.model.Booksdeliver;
 import com.example.demo.model.Booksdeliver;
+import com.example.demo.repository.BooksDeliverRepository;
 import com.example.demo.service.booksdeliver.interfaces.IBooksdeliverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,33 +14,33 @@ import java.util.stream.Collectors;
 @Service
 public class BooksdeliverServiceimpl implements IBooksdeliverService {
     @Autowired
-    BooksdeliverDAOimpl BooksdeliverDAO;
+    BooksDeliverRepository BooksdeliverRepository;
 
     @Override
     public Booksdeliver insertBooksdeliver(Booksdeliver booksdeliver) {
-        return BooksdeliverDAO.insertBooksdeliver(booksdeliver);
+        return BooksdeliverRepository.save(booksdeliver);
     }
 
     @Override
     public Booksdeliver getBooksdeliver(int id) {
-        return BooksdeliverDAO.getBooksdeliver(id);
+        return BooksdeliverRepository.getOne(id);
 
     }
 
     @Override
     public Booksdeliver updateBooksdeliver(Booksdeliver booksdeliver) {
-        return BooksdeliverDAO.updateBooksdeliver(booksdeliver);
+        return BooksdeliverRepository.save(booksdeliver);
     }
 
     @Override
-    public Booksdeliver deleteBooksdeliver(int id) {
-        return BooksdeliverDAO.deleteBooksdeliver(id);
+    public void deleteBooksdeliver(int id) {
+         BooksdeliverRepository.deleteById(id);
     }
 
     @Override
     public List<Booksdeliver> getAll() {
-        return BooksdeliverDAO.getAll().
-                stream()
-                .collect(Collectors.toList());
+        return BooksdeliverRepository.findAll();
+                /*stream()
+                .collect(Collectors.toList());*/
     }
 }

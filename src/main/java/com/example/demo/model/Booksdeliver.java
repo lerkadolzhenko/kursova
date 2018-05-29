@@ -1,18 +1,33 @@
 package com.example.demo.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "booksdeliver")
+@EntityListeners(AuditingEntityListener.class)
+
 public class Booksdeliver {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idbooksdeliver;
-    private String namebook;
-    private String namelocation;
+    @ManyToOne
+    private Books namebook;
+    @ManyToOne
+    private Location namelocation;
     private int amount;
     private String datebooksdeliver;
 
-    public Booksdeliver(int idbooksdeliver, String namebook, String namelocation, int amount, String datebooksdeliver) {
+    public Booksdeliver(int idbooksdeliver, Books namebook, Location namelocation, int amount, String datebooksdeliver) {
         this.idbooksdeliver = idbooksdeliver;
         this.namebook = namebook;
         this.namelocation = namelocation;
         this.amount = amount;
         this.datebooksdeliver = datebooksdeliver;
+    }
+
+    public Booksdeliver() {
     }
 
     public int getIdbooksdeliver() {
@@ -23,19 +38,19 @@ public class Booksdeliver {
         this.idbooksdeliver = idbooksdeliver;
     }
 
-    public String getNamebook() {
+    public Books getNamebook() {
         return namebook;
     }
 
-    public void setNamebook(String namebook) {
+    public void setNamebook(Books namebook) {
         this.namebook = namebook;
     }
 
-    public String getNamelocation() {
+    public Location getNamelocation() {
         return namelocation;
     }
 
-    public void setNamelocation(String namelocation) {
+    public void setNamelocation(Location namelocation) {
         this.namelocation = namelocation;
     }
 
@@ -53,7 +68,7 @@ public class Booksdeliver {
         this.datebooksdeliver = datebooksdeliver;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Booksdeliver{" +
                 "idbooksdeliver=" + idbooksdeliver +
@@ -62,5 +77,5 @@ public class Booksdeliver {
                 ", amount=" + amount +
                 ", datebooksdeliver=" + datebooksdeliver +
                 '}';
-    }
+    }*/
 }

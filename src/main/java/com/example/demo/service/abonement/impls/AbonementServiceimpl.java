@@ -1,7 +1,7 @@
 package com.example.demo.service.abonement.impls;
 
-import com.example.demo.DAO.abonement.impls.AbonementDAOimpl;
 import com.example.demo.model.Abonement;
+import com.example.demo.repository.AbonementRepository;
 import com.example.demo.service.abonement.interfaces.IAbonementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,33 +13,33 @@ import java.util.stream.Collectors;
 public class AbonementServiceimpl implements IAbonementService {
 
     @Autowired
-    AbonementDAOimpl AbonementDAO;
+    AbonementRepository AbonementRepository;
 
     @Override
     public Abonement insertAbonement(Abonement abonement) {
-        return AbonementDAO.insertAbonement(abonement);
+        return AbonementRepository.save(abonement);
     }
 
     @Override
     public Abonement getAbonement(int id) {
-        return AbonementDAO.getAbonement(id);
+        return AbonementRepository.getOne(id);
 
     }
 
     @Override
     public Abonement updateAbonement(Abonement abonement) {
-        return AbonementDAO.updateAbonement(abonement);
+        return AbonementRepository.save(abonement);
     }
 
     @Override
-    public Abonement deleteAbonement(int id) {
-        return AbonementDAO.deleteAbonement(id);
+    public void deleteAbonement(int id) {
+        AbonementRepository.deleteById(id);
     }
 
     @Override
     public List<Abonement> getAll() {
-        return AbonementDAO.getAll().
-                stream()
-                .collect(Collectors.toList());
+        return AbonementRepository.findAll();
+              /*  stream()
+                .collect(Collectors.toList());*/
     }
 }

@@ -11,7 +11,7 @@ public interface IFinesService {
 
     public Fines updateFines(Fines fines);
 
-    public Fines deleteFines(int id);
+    public void deleteFines(int id);
 
     public List<Fines> getAll();
 }

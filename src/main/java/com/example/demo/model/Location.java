@@ -1,8 +1,21 @@
 package com.example.demo.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "location")
+@EntityListeners(AuditingEntityListener.class)
+
 public class Location {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idlocation;
     private String namelocation;
+
+    public Location() {
+    }
 
     public Location(int idlocation, String namelocation) {
         this.idlocation = idlocation;

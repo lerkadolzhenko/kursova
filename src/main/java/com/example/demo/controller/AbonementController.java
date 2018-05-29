@@ -13,11 +13,11 @@ import java.util.List;
 
 public class AbonementController {
     @Autowired
-    AbonementServiceimpl AbonementService;
+    AbonementServiceimpl AbonementServiceimpl;
 
     @RequestMapping("/Abonement")
     public List<Abonement> showAbonement()
     {
-        return AbonementService.getAll();
+        return AbonementServiceimpl.getAll();
     }
 }

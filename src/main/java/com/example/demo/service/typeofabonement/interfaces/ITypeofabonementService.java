@@ -11,7 +11,7 @@ public interface ITypeofabonementService {
 
     public Typeofabonement updateTypeofabonement(Typeofabonement typeofabonement);
 
-    public Typeofabonement deleteTypeofabonement(int id);
+    public void deleteTypeofabonement(int id);
 
     public List<Typeofabonement> getAll();
 }

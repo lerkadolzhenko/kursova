@@ -1,7 +1,6 @@
 package com.example.demo.service.typefine.impls;
 
-import com.example.demo.DAO.typefine.impls.TypefineDAOimpl;
-import com.example.demo.datastorage.DataStorageFake;
+
 import com.example.demo.model.Typefine;
 import com.example.demo.model.Typefine;
 import com.example.demo.repository.TypefineRepository;

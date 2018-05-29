@@ -7,7 +7,6 @@ public class Persontypes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idpersontypes;
-
     private String typeOfPerson;
 
     public Persontypes(int idpersontypes, String typeOfPerson) {

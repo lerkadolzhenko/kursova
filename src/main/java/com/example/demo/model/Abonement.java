@@ -1,30 +1,29 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 
 import static org.apache.coyote.http11.Constants.a;
 
+@Entity
+@Table(name = "abonement")
+@EntityListeners(AuditingEntityListener.class)
 public class Abonement {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idabonement;
-    private String nameperson;
-    private String nametypeofabonement;
+    @ManyToOne
+    private Person nameperson;
+    @ManyToOne
+    private Typeofabonement nametypeofabonement;
     private String  dateabonementbegin;
     private String dateabonementend;
 
     public Abonement() {
     }
 
-    public Abonement(String nameperson, String nametypeofabonement, String dateabonementbegin, String dateabonementend) {
-        this.nameperson = nameperson;
-        this.nametypeofabonement = nametypeofabonement;
-        this.dateabonementbegin = dateabonementbegin;
-        this.dateabonementend = dateabonementend;
-    }
-
-    public Abonement(int idabonement, String nameperson, String nametypeofabonement, String dateabonementbegin, String dateabonementend) {
+    public Abonement(int idabonement, Person nameperson, Typeofabonement nametypeofabonement, String dateabonementbegin, String dateabonementend) {
         this.idabonement = idabonement;
         this.nameperson = nameperson;
         this.nametypeofabonement = nametypeofabonement;
@@ -40,21 +39,19 @@ public class Abonement {
         this.idabonement = idabonement;
     }
 
-    public String getNameperson() {
+    public Person getNameperson() {
         return nameperson;
     }
 
-    public void setNameperson(String nameperson) {
+    public void setNameperson(Person nameperson) {
         this.nameperson = nameperson;
     }
 
-    public String getNametypeofabonement() {
+    public Typeofabonement getNametypeofabonement() {
         return nametypeofabonement;
     }
 
-    public void setNametypeofabonement(String nametypeofabonement) {
-        this.nametypeofabonement = nametypeofabonement;
-    }
+    public void setNametypeofabonement(Typeofabonement nametypeofabonement) { this.nametypeofabonement = nametypeofabonement; }
 
     public String getDateabonementbegin() {
         return dateabonementbegin;
@@ -72,14 +69,4 @@ public class Abonement {
         this.dateabonementend = dateabonementend;
     }
 
-    @Override
-    public String toString() {
-        return "Abonement{" +
-                "idabonement=" + idabonement +
-                ", nameperson='" + nameperson + '\'' +
-                ", nametypeofabonement='" + nametypeofabonement + '\'' +
-                ", dateabonementbegin=" + dateabonementbegin +
-                ", dateabonementend=" + dateabonementend +
-                '}';
-    }
 }

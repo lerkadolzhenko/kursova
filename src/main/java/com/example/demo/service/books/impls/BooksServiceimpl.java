@@ -1,7 +1,7 @@
 package com.example.demo.service.books.impls;
 
-import com.example.demo.DAO.books.impls.BooksDAOimpl;
 import com.example.demo.model.Books;
+import com.example.demo.repository.BooksRepository;
 import com.example.demo.service.books.interfaces.IBooksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,33 +13,33 @@ import java.util.stream.Collectors;
 public class BooksServiceimpl implements IBooksService {
 
     @Autowired
-    BooksDAOimpl BooksDAO;
+    BooksRepository BooksRepository;
 
     @Override
     public Books insertBooks(Books books) {
-        return BooksDAO.insertBooks(books);
+        return BooksRepository.save(books);
     }
 
     @Override
     public Books getBooks(int id) {
-        return BooksDAO.getBooks(id);
+        return BooksRepository.getOne(id);
 
     }
 
     @Override
     public Books updateBooks(Books books) {
-        return BooksDAO.updateBooks(books);
+        return BooksRepository.save(books);
     }
 
     @Override
-    public Books deleteBooks(int id) {
-        return BooksDAO.deleteBooks(id);
+    public void deleteBooks(int id) {
+         BooksRepository.deleteById(id);
     }
 
     @Override
     public List<Books> getAll() {
-        return BooksDAO.getAll().
-                stream()
-                .collect(Collectors.toList());
+        return BooksRepository.findAll();
+                /*stream()
+                .collect(Collectors.toList());*/
     }
 }
